@@ -1,4 +1,4 @@
-# lo-weather
+# LO Weather
 A weather website for my hometown ran by me, a middleschooler :D
-# link
+# Website Link
 https://lo-weather.vercel.app/
