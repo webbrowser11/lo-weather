@@ -1,29 +1,32 @@
-# api for the weather website
-import json
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
+
+# chatgpt cleaned this up, also i am prolly going to add more endpoints and make it easier to maintain, as well as mabye automate and make the website use this api to get the forecast too, which will make everything a but eassier.
 
 app = Flask(__name__)
 
-# these are to be updated everyday, at some point i wish to automate this process.
+@app.route('/api/temperature')
+def temperature():
 
-@app.route('/api/temperature', methods=['GET'])
-def get_temperature():
-    todays_temperature_data = {
-        'temperature-high-lake-oswego': 80,
-        'temperature-low-lake-oswego': 54
-    }
-    return jsonify(todays_temperature_data)
+    return jsonify({
+        "temperature-high-lake-oswego": 80,
+        "temperature-low-lake-oswego": 54
+    })
 
-@app.route('/api/skies', methods=['POST'])
-def get_skies():
-    todays_skies_data = {
-        'skies-lake-oswego': 'cloudy until 4pm, then mostly cloudy with a chance of rain before 1am.'
-    }
-    return jsonify(todays_skies_data)
+@app.route('/api/skies')
+def skies():
 
-@app.route('/api/warnings-advisories', methods=['GET'])
-def get_warnings_advisories():
-    todays_warnings_advisories_data = {
-        'warnings-advisories-lake-oswego': 'There are no current warnings or advisories :D'
-    }
-    return jsonify(todays_warnings_advisories_data)
+    return jsonify({
+        "skies-lake-oswego":
+        "cloudy until 4pm, then mostly cloudy with a chance of rain before 1am."
+    })
+
+@app.route('/api/warnings-advisories')
+def warnings():
+
+    return jsonify({
+        "warnings-advisories-lake-oswego":
+        "There are no current warnings or advisories :D"
+    })
+
+# IMPORTANT FOR VERCEL
+app = app
