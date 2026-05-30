@@ -8,8 +8,8 @@ app = Flask(__name__)
 def temperature():
 
     return jsonify({
-        "temperature-high-lake-oswego": 67,
-        "temperature-low-lake-oswego": 45
+        "temperature-high-lake-oswego": 66,
+        "temperature-low-lake-oswego": 47
     })
 
 @app.route('/api/skies')
@@ -17,7 +17,7 @@ def skies():
 
     return jsonify({
         "skies-lake-oswego":
-        "Cloudy and rainy starting 8am and then clearing up around 3pm then partly cloudy skies from 8pm until the end of the day."
+        "Partly cloudy all day until late this afternoon, with decreasing cloud cover. Clear with chilly weather all night."
     })
 
 @app.route('/api/warnings-advisories')
