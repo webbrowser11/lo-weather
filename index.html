@@ -1,9 +1,21 @@
 <title>Lake Oswego Weather</title>
+<style>
+    footer {
+        position: fixed;
+        bottom: 20px; /* Distance from bottom */
+        width: 100%;
+        text-align: center; /* Centers text */
+    }
+    a {
+        text-decoration: none; /* Removes underline from links */
+        display: block;
+    }
+</style>
 <h1>Lake Oswego Weather</h1>
 <a href="weather-history.html">Weather History</a><br>
 <a href="todays-weather.html">Today's Weather</a><br>
 <a href="current-observations.html">Current Observations</a><br>
-<a href="api-key.html">API Key</a><br>
+<a href="api-key.html">API Key</a>
 
 <!-- Fetch last updated time -->
 <script>
@@ -24,7 +36,11 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
     This website was last updated at
     <span id="last-updated">loading...</span>
 </p>
-This website is ran by a middle schooler. Take it with a grain of salt. <br>
-I am working on styling for the website. Not to much styling of course. <br>
-I don't like css :D
+<p>
+    This website is ran by a middle schooler. Take it with a grain of salt. <br>
+    I am working on styling for the website. Not to much styling of course. <br>
+    I don't like css :D
 </p>
+<footer>
+    <a href="sitemap.xml" target="_blank">XML Sitemap</a>
+</footer>
