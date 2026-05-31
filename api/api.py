@@ -31,14 +31,15 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "May 30th, 2026 at 6:44 PM PT"
+        "last-updated-lake-oswego": "May 30th, 2026 at 7:00 PM PT"
     })
 
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "observations-lake-oswego": "Currently my observations are that it is 68 degrees but feels like 65.\n And is partly cloudy, with decreasing cloud cover.\n"
-        "The high is higher than I originally predicted, and the low has also gone up with it."
+        "observations-lake-oswego": "Currently my observations are that it is 65 degrees but feels like 66.\n And is mostly clear.\n"
+        "The high is was 70 degrees, and the low is probably accurate for today.\n Currently, the sun is begging to set, and tonight should be a good sunset!\n"
+        "There are some clouds in the sky, but they are not very dark. No rain should occur. This will add to the sunset.\n"
     })
 
 # IMPORTANT FOR VERCEL
