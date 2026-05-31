@@ -3,8 +3,8 @@
 fetch('https://lo-weather.vercel.app/api/observations')
     .then(response => response.json())
     .then(data => {
-        document.getElementById('observations').textContent =
-            data['observations-lake-oswego'];
+        document.getElementById("observations").innerHTML =
+            data["observations-lake-oswego"].replace(/\n/g, "<br>");
     })
     .catch(error => {
         console.error(error);
