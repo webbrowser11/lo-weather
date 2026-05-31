@@ -2,6 +2,26 @@
 <a href="weather-history.html">Climate History</a><br>
 <a href="todays-weather.html">Todays Weather</a><br>
 <a href="api-key.html">API key</a><br>
+
+<!-- Fetch last updated time -->
+<script>
+fetch('https://lo-weather.vercel.app/api/last-updated')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('last-updated').textContent =
+            data['last-updated-lake-oswego'];
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById('last-updated').textContent =
+            'could not fetch last updated time.';
+    });
+</script>
+
+<p>
+    This website was last updated at
+    <span id="last-updated">loading...</span>
+</p>
 <p>
 This website is ran by a middle schooler. Take it with a grain of salt. <br>
 I am working on styling for the website. Not to much styling of course. <br>
