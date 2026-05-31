@@ -8,8 +8,8 @@ app = Flask(__name__)
 def temperature():
 
     return jsonify({
-        "temperature-high-lake-oswego": 66,
-        "temperature-low-lake-oswego": 47
+        "temperature-high-lake-oswego": 70,
+        "temperature-low-lake-oswego": 48
     })
 
 @app.route('/api/skies')
@@ -31,7 +31,7 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "May 30th, 2026 at 5:24 PM"
+        "last-updated-lake-oswego": "May 30th, 2026 at 5:30 PM"
     })
 
 @app.route('/api/observations')
