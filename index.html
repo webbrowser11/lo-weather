@@ -32,6 +32,21 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
     });
 </script>
 
+<!-- Fetch special weather events-->
+<script>
+fetch('https://lo-weather.vercel.app/api/events')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('special-events').textContent =
+            data['events-lake-oswego'];
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById('special-events').textContent =
+            '';
+    });
+</script>
+
 <p>
     This website was last updated at
     <span id="last-updated">loading...</span>
@@ -40,6 +55,9 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
     This website is ran by a middle schooler. Take it with a grain of salt. <br>
     I am working on styling for the website. Not to much styling of course. <br>
     I don't like css :D
+</p>
+<p>
+    <span id="special-events"> </span>
 </p>
 <footer>
     <a href="sitemap.xml" target="_blank">XML Sitemap</a>
