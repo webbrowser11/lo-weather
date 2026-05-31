@@ -1,0 +1,25 @@
+<title>Current Weather Observations</title>
+<h1>Current Weather Observations</h1>
+
+<div style="position: fixed; top: 0; right: 0; text-decoration: none;">
+  <a href="javascript:history.back()"><- Back</a>
+</div>
+
+<!-- Fetch weather observations -->
+<script>
+fetch('https://lo-weather.vercel.app/api/observations')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("observations").innerHTML =
+            data["observations-lake-oswego"].replace(/\n/g, "<br>");
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById('observations').textContent =
+            'could not fetch weather observations.';
+    });
+</script>
+
+<p>
+    <span id="observations">loading...</span>
+<p>
