@@ -31,13 +31,14 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "May 31st, 2026 at 2:14 PM PT"
+        "last-updated-lake-oswego": "May 31st, 2026 at 2:35 PM PT"
     })
 
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "observations-lake-oswego": "My current observations for lake oswego is that it is currently about 70 degrees fahrenheit, and it feels like 73.\nThe skies are currently clear, and it's a nice day to go outside!"
+        "observations-lake-oswego": "My current observations for lake oswego is that it is currently about 70 degrees fahrenheit, and it feels like 73.\nThe skies are currently clear, and it's a nice day to go outside!\nI really do have to mention the heat though.\n It is very hot, so stay hyrated. Also, remember the sun is very strong!\n Don't forget to wear at least SPF 50 sunscreen if you are goin outside for long periods of time.",
+        "last-updated-observations-lake-oswego": "May 31st, 2026 at 2:35 PM PT"
     })
 
 @app.route('/api/events')

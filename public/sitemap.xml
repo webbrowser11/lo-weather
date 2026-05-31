@@ -21,4 +21,11 @@
         <loc>https://lo-weather.vercel.app/api-key.html</loc>
     </url>
 
+    <url>
+        <loc>https://lo-weather.vercel.app/events.html</loc>
+    </url>
+
+    <url>
+        <loc>https://lo-weather.vercel.app/NWS-References.html</loc>
+    </url>
 </urlset>

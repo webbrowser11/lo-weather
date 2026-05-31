@@ -11,6 +11,10 @@
         display: block;
         color: blue;
     }
+    alertsspan {
+        color: red;
+        font-weight: bold;
+    }
 </style>
 <h1>Lake Oswego Weather</h1>
 <a href="site/weather-history.html">Weather History</a><br>
@@ -40,7 +44,7 @@ fetch('https://lo-weather.vercel.app/api/alerts')
     .then(response => response.json())
     .then(data => {
         document.getElementById('alerts').innerHTML =
-            data['alerts-lake-oswego'].replace(/\n/g, "<br>");
+            'ALERT FROM THE NWS: ' + data['alerts-lake-oswego'].replace(/\n/g, "<br>");
     })
     .catch(error => {
         console.error(error);
@@ -59,7 +63,9 @@ fetch('https://lo-weather.vercel.app/api/alerts')
     I don't like css :D
 </p>
 <footer>
-    <span id="alerts"></span>
+    <alertsspan>
+        <span id="alerts"></span>
+    </alertsspan>
     <a href="public/sitemap.xml" target="_blank">XML Sitemap</a>
     <a href="site/NWS-References.html">NWS References</a>
     <p>&copy; 2026 Webbrowser11 no rights reserved.</p>
