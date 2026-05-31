@@ -17,7 +17,7 @@ def skies():
 
     return jsonify({
         "skies-lake-oswego":
-        "Partly cloudy all day until late this afternoon, with decreasing cloud cover. Clear with chilly weather all night."
+        "Partly cloudy all day until late this afternoon when cloud cover will being to decrease. Clear or mostly clear with chilly weather all night."
     })
 
 @app.route('/api/alerts')
@@ -31,7 +31,7 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "May 30th, 2026 at 7:00 PM PT"
+        "last-updated-lake-oswego": "May 30th, 2026 at 7:15 PM PT"
     })
 
 @app.route('/api/observations')
