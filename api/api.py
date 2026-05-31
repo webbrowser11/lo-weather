@@ -37,7 +37,8 @@ def last_updated():
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "observations-lake-oswego": "Currently my observations are that it is 68 degrees but feels like 65. And is partly cloudy, with decreasing cloud cover."
+        "observations-lake-oswego": "Currently my observations are that it is 68 degrees but feels like 65.\n And is partly cloudy, with decreasing cloud cover.\n"
+        "The high is higher than I originally predicted, and the low has also gone up with it."
     })
 
 # IMPORTANT FOR VERCEL
