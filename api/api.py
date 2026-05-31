@@ -31,7 +31,7 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "May 30th, 2026 at 8:30 PM PT"
+        "last-updated-lake-oswego": "May 30th, 2026 at 8:45 PM PT"
     })
 
 @app.route('/api/observations')
@@ -45,7 +45,7 @@ def observations():
 @app.route('/api/events')
 def events():
     return jsonify({
-        "events-lake-oswego": "There is a special lunar event going on, the sun is setting right when the moon rises.\nWith the sunset, if you drive to a good lockout, you could see an amazing event!"
+        "events-lake-oswego": "There is a special lunar event going on, the sun is setting right when the moon rises.\nWith the sunset, if you drive to a good lockout, you could see an amazing event!\n\n"
     })
 
 # IMPORTANT FOR VERCEL

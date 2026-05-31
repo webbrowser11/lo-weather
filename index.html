@@ -37,13 +37,13 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
 fetch('https://lo-weather.vercel.app/api/events')
     .then(response => response.json())
     .then(data => {
-        document.getElementById('special-events').textContent =
+        document.getElementById('special-events').innerHTML =
             data['events-lake-oswego'].replace(/\n/g, "<br>");
     })
     .catch(error => {
         console.error(error);
         document.getElementById('special-events').textContent =
-            '677777';
+            '';
     });
 </script>
 
@@ -57,8 +57,7 @@ fetch('https://lo-weather.vercel.app/api/events')
     I don't like css :D
 </p>
 <footer>
-    <span id="special-events"> </span><br>
-    <br>
+    <span id="special-events"></span>
     <a href="sitemap.xml" target="_blank">XML Sitemap</a>
     <p>&copy; 2026 Webbrowser11 All rights reserved.</p>
     <p>Some information on this website was taken from the National Weather Service website.</p>
