@@ -25,7 +25,7 @@ def alerts():
 
     return jsonify({
         "alerts-lake-oswego":
-        "There are no current alerts :D"
+        "Abnormally dry conditions have been reported by the National Weather Service."
     })
 
 @app.route('/api/last-updated')
@@ -37,15 +37,13 @@ def last_updated():
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "observations-lake-oswego": "Currently my observations are that it is 65 degrees but feels like 66.\n And is mostly clear.\n"
-        "The high is was 70 degrees, and the low is probably accurate for today.\n Currently, the sun is begging to set, and tonight should be a good sunset!\n"
-        "There are some clouds in the sky, but they are not very dark. No rain should occur. This will add to the sunset.\n"
+        "observations-lake-oswego": "My current observations for lake oswego is that it is currently about 70 degrees fahrenheit, and it feels like 73.\nThe skies are currently clear, and it's a nice day to go outside!"
     })
 
 @app.route('/api/events')
 def events():
     return jsonify({
-        "events-lake-oswego": "There are no current events D:"
+        "events-lake-oswego": "There are no current special events sorry D:"
     })
 
 # IMPORTANT FOR VERCEL

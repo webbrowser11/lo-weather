@@ -9,4 +9,3 @@ To do:
 - [ ] Add styling
 - [ ] Add more API functions
 - [ ] Remeber to make fixes and updates regularly
-- [X] FIX WEBSITE

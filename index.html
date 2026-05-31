@@ -15,6 +15,7 @@
 <a href="site/weather-history.html">Weather History</a><br>
 <a href="site/todays-weather.html">Today's Weather</a><br>
 <a href="site/current-observations.html">Current Observations</a><br>
+<a href="site/events.html">Special Events</a><br>
 <a href="site/api-key.html">API Key</a>
 
 <!-- Fetch last updated time -->
@@ -32,24 +33,24 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
     });
 </script>
 
-<!-- Fetch special weather events-->
+<!-- Fetch alerts -->
 <script>
-fetch('https://lo-weather.vercel.app/api/events')
+fetch('https://lo-weather.vercel.app/api/alerts')
     .then(response => response.json())
     .then(data => {
-        document.getElementById('special-events').innerHTML =
-            data['events-lake-oswego'].replace(/\n/g, "<br>");
+        document.getElementById('alerts').innerHTML =
+            data['alerts-lake-oswego'].replace(/\n/g, "<br>");
     })
     .catch(error => {
         console.error(error);
-        document.getElementById('special-events').textContent =
-            '';
+        document.getElementById('alerts').textContent =
+            'could not fetch alerts.';
     });
 </script>
 
 <p>
     This website was last updated at
-    <span id="last-updated">loading...</span>
+    <span id="last-updated">loading...</span><br>
 </p>
 <p>
     This website is ran by a middle schooler. Take it with a grain of salt. <br>
@@ -57,7 +58,7 @@ fetch('https://lo-weather.vercel.app/api/events')
     I don't like css :D
 </p>
 <footer>
-    <span id="special-events"></span>
+    <span id="alerts"></span>
     <a href="public/sitemap.xml" target="_blank">XML Sitemap</a>
     <p>&copy; 2026 Webbrowser11 no rights reserved.</p>
     <p>Some information on this website was taken from the National Weather Service website.</p>
