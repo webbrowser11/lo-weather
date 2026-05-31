@@ -31,7 +31,7 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "May 30th, 2026 at 5:50 PM"
+        "last-updated-lake-oswego": "May 30th, 2026 at 5:55 PM PT"
     })
 
 @app.route('/api/observations')
