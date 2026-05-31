@@ -39,7 +39,7 @@ def observations():
     return jsonify({
         "observations-lake-oswego": "Currently my observations are that it is 65 degrees but feels like 66.\n And is mostly clear.\n"
         "The high is was 70 degrees, and the low is probably accurate for today.\n Currently, the sun is begging to set, and tonight should be a good sunset!\n"
-        "There are some clouds in the sky, but they are not very dark. No rain should occur. This will add to the sunset.\n"
+        "There are some clouds in the sky, but they are not very dark. No rain should occur. This will add to the sunset.\nAlso, there is a special lunar event going on, the sun is setting right when the moon rises.\n With the sunset, if you drive to a goog lockout, you could see an amazing event!"
     })
 
 # IMPORTANT FOR VERCEL
