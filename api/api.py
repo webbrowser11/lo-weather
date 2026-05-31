@@ -31,7 +31,7 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": "5-30-26-503PM"
+        "last-updated-lake-oswego": "5-30-26-512PM"
     })
 
 # IMPORTANT FOR VERCEL
