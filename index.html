@@ -18,10 +18,30 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
     });
 </script>
 
+<!-- Fetch weather observations -->
+<script>
+fetch('https://lo-weather.vercel.app/api/observations')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('observations').textContent =
+            data['observations-lake-oswego'];
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById('observations').textContent =
+            'could not fetch weather observations.';
+    });
+</script>
+
 <p>
     This website was last updated at
     <span id="last-updated">loading...</span>
 </p>
+<p>
+    Current weather observations are below
+</p>
+<p>
+    <span id="observations">loading...</span>
 <p>
 This website is ran by a middle schooler. Take it with a grain of salt. <br>
 I am working on styling for the website. Not to much styling of course. <br>
