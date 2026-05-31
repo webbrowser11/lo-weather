@@ -20,12 +20,18 @@ def skies():
         "Partly cloudy all day until late this afternoon, with decreasing cloud cover. Clear with chilly weather all night."
     })
 
-@app.route('/api/warnings-advisories')
-def warnings():
+@app.route('/api/alerts')
+def alerts():
 
     return jsonify({
-        "warnings-advisories-lake-oswego":
-        "There are no current warnings or advisories :D"
+        "alerts-lake-oswego":
+        "There are no current alerts :D"
+    })
+
+@app.route('/api/last-updated')
+def last_updated():
+    return jsonify({
+        "last-updated-lake-oswego": "5-30-26-503PM"
     })
 
 # IMPORTANT FOR VERCEL
