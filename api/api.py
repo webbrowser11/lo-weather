@@ -37,8 +37,8 @@ def last_updated():
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "observations-lake-oswego": "82 degrees Fahrenheit, Increasing clouds.",
-        "last-updated-observations-lake-oswego": "June 1st, 2026 at 6:05PM PT"
+        "observations-lake-oswego": "86 degrees Fahrenheit, Partly cloudy.",
+        "last-updated-observations-lake-oswego": "June 2nd, 2026 at 4:50PM PT"
     })
 
 @app.route('/api/events')

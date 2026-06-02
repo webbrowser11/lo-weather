@@ -1,0 +1,2 @@
+# this is to be added later
+https://api.weather.gov/stations/KPDX/observations/latest
