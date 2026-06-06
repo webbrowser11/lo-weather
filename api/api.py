@@ -2,9 +2,9 @@ from flask import Flask, jsonify
 
 # chatgpt cleaned this up, also i am prolly going to add more endpoints and make it easier to maintain, as well as mabye automate and make the website use this api to get the forecast too, which will make everything a but eassier.
 
-last_updated = "June 5th, 2026 at 4:00PM PT"
-temp_last_updated = "June 5th, 2026 at 4:00PM PT"
-observations_last_updated = "June 5th, 2026 at 4:00PM PT"
+last_updated = "June 6th, 2026 at 2:45PM PT"
+temp_last_updated = "June 6th, 2026 at 2:45PM PT"
+observations_last_updated = "June 6th, 2026 at 2:45PM PT"
 
 app = Flask(__name__)
 
@@ -12,8 +12,8 @@ app = Flask(__name__)
 def temperature():
 
     return jsonify({
-        "temperature-high-lake-oswego": 65,
-        "temperature-low-lake-oswego": 47,
+        "temperature-high-lake-oswego": 63,
+        "temperature-low-lake-oswego": 45,
         "temperature-last-updated-lake-oswego": temp_last_updated
     })
 
@@ -22,7 +22,7 @@ def skies():
 
     return jsonify({
         "skies-lake-oswego":
-        "Partly cloudy all day until late this afternoon when cloud cover will being to decrease. Clear or mostly clear with chilly weather all night."
+        "Cloudy. Showers expected."
     })
 
 @app.route('/api/alerts')
@@ -42,14 +42,14 @@ def last_updated():
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "observations-lake-oswego": "68 degrees Fahrenheit, sunny.",
+        "observations-lake-oswego": "61 degrees Fahrenheit, Cloudy.",
         "last-updated-observations-lake-oswego": observations_last_updated
     })
 
 @app.route('/api/events')
 def events():
     return jsonify({
-        "events-lake-oswego": "Tonight the auroras are supposed to be very good! Check them out!"
+        "events-lake-oswego": "No special events D:"
     })
 
 # IMPORTANT FOR VERCEL
