@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 
 # chatgpt cleaned this up, also i am prolly going to add more endpoints and make it easier to maintain, as well as mabye automate and make the website use this api to get the forecast too, which will make everything a but eassier.
 
-last_updated = "June 22nd, 2026 at 4:30 PM PDT"
+last_updated_text = "June 22nd, 2026 at 4:30 PM PDT"
 temp_last_updated = "June 22nd, 2026 at 4:30 PM PDT"
 observations_last_updated = "June 22nd, 2026 at 4:30 PM PDT"
 
@@ -36,7 +36,7 @@ def alerts():
 @app.route('/api/last-updated')
 def last_updated():
     return jsonify({
-        "last-updated-lake-oswego": last_updated
+        "last-updated-lake-oswego": last_updated_text
     })
 
 @app.route('/api/observations')
