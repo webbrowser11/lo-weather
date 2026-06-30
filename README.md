@@ -7,8 +7,5 @@ https://lo-weather.vercel.app/
 ## To do
 To do:
 - [ ] Add styling
-- [x] Make automation
-- [x] Add more API functions
-- [x] Remeber to make fixes and updates regularly
-
-# Automation begins tommorow. Bug fixing will occur until automation is fully finished.
+- [ ] Add more API functions
+- [ ] Remeber to make fixes and updates regularly

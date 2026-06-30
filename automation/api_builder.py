@@ -1,0 +1,72 @@
+import os
+import datetime
+import subprocess
+import nws_api_fetch
+
+# Paths
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+API_FILE_PATH = os.path.abspath(os.path.join(BASE_DIR, '..', 'api', 'api.py'))
+REPO_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..'))
+
+def refresh_api(push_to_git=True):
+    print("Fetching live data for API refresh...")
+    data = nws_api_fetch.fetch_weather_data()
+    
+    if not data:
+        print("API Build cancelled: Could not reach NWS.")
+        return
+
+    # Prepare variables
+    timestamp = datetime.datetime.now().strftime("%B %d, %Y at %I:%M %p PT")
+    high = data.get('forecast-high', 'N/A')
+    low = data.get('forecast-low', 'N/A')
+    day_sky = data.get('forecast-day-sky', 'Clear')
+
+    # Generate the file content
+    api_content = f'''from flask import Flask, jsonify
+
+app = Flask(__name__)
+last_updated = "{timestamp}"
+
+@app.route('/api/temperature')
+def temperature():
+    return jsonify({{"high": "{high}", "low": "{low}", "last_updated": last_updated}})
+
+@app.route('/api/skies')
+def skies():
+    return jsonify({{"skies": "{day_sky}"}})
+
+@app.route('/api/last-updated')
+def last_updated():
+    return jsonify({{"last_updated": last_updated}})
+
+@app.route('/api/observations')
+def observations():
+    return jsonify({{"current": "{high} degrees, {day_sky}", "last_updated": last_updated}})
+
+# IMPORTANT FOR VERCEL
+app = app
+'''
+
+    # Write the file
+    os.makedirs(os.path.dirname(API_FILE_PATH), exist_ok=True)
+    with open(API_FILE_PATH, 'w', encoding='utf-8') as f:
+        f.write(api_content)
+    
+    print(f"API file updated at {timestamp}")
+
+    # Push to Git if requested
+    if push_to_git:
+        try:
+            os.chdir(REPO_ROOT)
+            subprocess.run(["git", "add", "api/api.py"], check=True)
+            status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+            if status.stdout.strip():
+                subprocess.run(["git", "commit", "-m", "Automated API update"], check=True)
+                subprocess.run(["git", "push"], check=True)
+                print("API changes pushed to GitHub.")
+        except Exception as e:
+            print(f"Git push failed: {e}")
+
+if __name__ == '__main__':
+    refresh_api(push_to_git=True)
