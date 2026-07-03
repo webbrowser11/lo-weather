@@ -43,19 +43,36 @@ def get_ordinal_date_string():
     return today.strftime(f"%B {day}{suffix}")
 
 def push_updates_to_github():
-    """Switches to the repository root and pushes the updated HTML pages to GitHub."""
+    """Sync-safe Git automation push."""
+
     try:
         os.chdir(REPO_ROOT)
+
+        # 1. Stage changes
         subprocess.run(["git", "add", TODAY_HTML_PATH, HISTORY_HTML_PATH], check=True)
-        
-        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
-        if status.stdout.strip():
-            commit_msg = f"Automated history update: Logged weather for {get_ordinal_date_string()}"
-            subprocess.run(["git", "commit", "-m", commit_msg], check=True)
-            subprocess.run(["git", "push"], check=True)
-            print("Successfully pushed daily updates to GitHub! Vercel is now redeploying.")
-        else:
+
+        # 2. Only commit if there are changes
+        status = subprocess.run(
+            ["git", "status", "--porcelain"],
+            capture_output=True,
+            text=True
+        )
+
+        if not status.stdout.strip():
             print("No data changes detected. Skipping Git push.")
+            return
+
+        commit_msg = f"Automated history update: Logged weather for {get_ordinal_date_string()}"
+        subprocess.run(["git", "commit", "-m", commit_msg], check=True)
+
+        # 3. ALWAYS sync first (this is the fix)
+        subprocess.run(["git", "pull", "--rebase"], check=True)
+
+        # 4. Push after sync
+        subprocess.run(["git", "push"], check=True)
+
+        print("Successfully pushed daily updates to GitHub! Vercel is now redeploying.")
+
     except subprocess.CalledProcessError as e:
         print(f"Git automation error: {e}")
 
