@@ -1,11 +1,11 @@
 from flask import Flask, jsonify
 
 app = Flask(__name__)
-last_updated = "July 04, 2026 at 11:30 AM PT"
+last_updated = "July 04, 2026 at 11:45 AM PT"
 
 @app.route('/api/temperature')
 def temperature():
-    return jsonify({"high": "81 degrees fahrenheit", "low": "55 degrees fahrenheit", "last_updated": last_updated})
+    return jsonify({"high": "78 degrees fahrenheit", "low": "55 degrees fahrenheit", "last_updated": last_updated})
 
 @app.route('/api/skies')
 def skies():
@@ -17,7 +17,7 @@ def last_updated():
 
 @app.route('/api/observations')
 def observations():
-    return jsonify({"current": "81 degrees fahrenheit degrees, Sunny", "last_updated": last_updated})
+    return jsonify({"current": "78 degrees fahrenheit degrees, Sunny", "last_updated": last_updated})
 
 # IMPORTANT FOR VERCEL
 app = app
