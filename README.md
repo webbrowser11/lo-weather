@@ -6,8 +6,8 @@ https://lo-weather.vercel.app/
 
 ## To do
 To do:
-- [ ] Fix Broken API
-- [ ] Fix Broken Weather History
+- [x] Fix Broken API
+- [x] Fix Broken Weather History
 - [x] Automation
 - [ ] Add styling
 - [x] Add more API functions

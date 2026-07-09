@@ -11,7 +11,7 @@ REPO_ROOT = os.path.abspath(os.path.join(BASE_DIR, '..'))
 def refresh_api(push_to_git=True):
     print("Fetching live data for API refresh...")
     data = nws_api_fetch.fetch_weather_data()
-    
+
     if not data:
         print("API Build cancelled: Could not reach NWS.")
         return
@@ -26,23 +26,35 @@ def refresh_api(push_to_git=True):
     api_content = f'''from flask import Flask, jsonify
 
 app = Flask(__name__)
-last_updated = "{timestamp}"
+
+LAST_UPDATED = "{timestamp}"
 
 @app.route('/api/temperature')
 def temperature():
-    return jsonify({{"high": "{high}", "low": "{low}", "last_updated": last_updated}})
+    return jsonify({{
+        "high": "{high}",
+        "low": "{low}",
+        "last_updated": LAST_UPDATED
+    }})
 
 @app.route('/api/skies')
 def skies():
-    return jsonify({{"skies": "{day_sky}"}})
+    return jsonify({{
+        "skies": "{day_sky}"
+    }})
 
 @app.route('/api/last-updated')
-def last_updated():
-    return jsonify({{"last_updated": last_updated}})
+def get_last_updated():
+    return jsonify({{
+        "last_updated": LAST_UPDATED
+    }})
 
 @app.route('/api/observations')
 def observations():
-    return jsonify({{"current": "{high} degrees, {day_sky}", "last_updated": last_updated}})
+    return jsonify({{
+        "current": "{high}, {day_sky}",
+        "last_updated": LAST_UPDATED
+    }})
 
 # IMPORTANT FOR VERCEL
 app = app
@@ -52,7 +64,7 @@ app = app
     os.makedirs(os.path.dirname(API_FILE_PATH), exist_ok=True)
     with open(API_FILE_PATH, 'w', encoding='utf-8') as f:
         f.write(api_content)
-    
+
     print(f"API file updated at {timestamp}")
 
     # Push to Git if requested
@@ -60,11 +72,22 @@ app = app
         try:
             os.chdir(REPO_ROOT)
             subprocess.run(["git", "add", "api/api.py"], check=True)
-            status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+
+            status = subprocess.run(
+                ["git", "status", "--porcelain"],
+                capture_output=True,
+                text=True
+            )
+
             if status.stdout.strip():
-                subprocess.run(["git", "commit", "-m", "Automated API update"], check=True)
+                subprocess.run(
+                    ["git", "commit", "-m", "Automated API update"],
+                    check=True
+                )
                 subprocess.run(["git", "push"], check=True)
                 print("API changes pushed to GitHub.")
+            else:
+                print("No changes to commit.")
         except Exception as e:
             print(f"Git push failed: {e}")
 
