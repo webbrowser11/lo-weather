@@ -5,39 +5,31 @@
   <a href="javascript:history.back()" style="color: blue; text-decoration: none;"><- Back</a>
 </div>
 
-<!-- Fetch weather observations -->
 <script>
 fetch('https://lo-weather.vercel.app/api/observations')
     .then(response => response.json())
     .then(data => {
         document.getElementById("observations").innerHTML =
-            data["observations-lake-oswego"].replace(/\n/g, "<br>");
-    })
-    .catch(error => {
-        console.error(error);
-        document.getElementById('observations').textContent =
-            'could not fetch weather observations.';
-    });
-</script>
+            data["current"];
 
-<!-- Fetch weather observations last updated -->
-<script>
-fetch('https://lo-weather.vercel.app/api/observations')
-    .then(response => response.json())
-    .then(data => {
         document.getElementById("last-updated").innerHTML =
-            data["last-updated-observations-lake-oswego"];
+            "Last updated: " + data["last_updated"];
     })
     .catch(error => {
         console.error(error);
-        document.getElementById('last-updated').textContent =
-            'could not fetch weather observations last updated time.';
+
+        document.getElementById("observations").textContent =
+            "could not fetch weather observations.";
+
+        document.getElementById("last-updated").textContent =
+            "could not fetch last updated time.";
     });
 </script>
 
 <p>
     <span id="observations">loading...</span>
 </p>
+
 <p>
     <span id="last-updated">loading...</span>
 </p>

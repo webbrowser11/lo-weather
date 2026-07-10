@@ -28,7 +28,7 @@ fetch('https://lo-weather.vercel.app/api/last-updated')
     .then(response => response.json())
     .then(data => {
         document.getElementById('last-updated').textContent =
-            data['last-updated-lake-oswego'];
+            data['last_updated'];
     })
     .catch(error => {
         console.error(error);
