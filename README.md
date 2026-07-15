@@ -9,6 +9,6 @@ To do:
 - [x] Fix Broken API
 - [x] Fix Broken Weather History
 - [x] Automation
-- [ ] Add styling
+- [x] Add styling
 - [x] Add more API functions
 - [x] Remeber to make fixes and updates regularly
