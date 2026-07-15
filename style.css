@@ -1,0 +1,94 @@
+/* Import a prettier font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom, #dff3ff, #f7fbff);
+    color: #234;
+    margin: 35px;
+    line-height: 1.7;
+}
+
+/* Big title */
+h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #0077ff, #00bfff, #00cc88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+/* Section headers */
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #005baa;
+    border-left: 6px solid #00a2ff;
+    padding-left: 12px;
+    margin-top: 35px;
+}
+
+h3 {
+    color: #008060;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Paragraphs */
+p {
+    font-size: 1.15rem;
+    color: #2f4355;
+}
+
+/* Strong text */
+strong {
+    color: #0050a0;
+}
+
+/* Links */
+a {
+    color: #0077ff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: #00bfff;
+    text-shadow: 0 0 8px rgba(0, 170, 255, 0.3);
+}
+
+/* Alerts */
+.alert {
+    color: #d60000;
+    font-weight: 800;
+    font-size: 1.15rem;
+    background: #ffe5e5;
+    padding: 10px 16px;
+    border-left: 5px solid #ff2a2a;
+    border-radius: 8px;
+}
+
+/* Temperature */
+.temperature {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #ff8c00;
+    text-shadow: 2px 2px 8px rgba(255, 140, 0, 0.25);
+}
+
+/* Weather condition */
+.condition {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #009688;
+}
+
+/* Footer */
+footer {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 40px;
+}
