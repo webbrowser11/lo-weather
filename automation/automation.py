@@ -97,6 +97,7 @@ def build_static_html_files(push_to_git=True):
 <head>
   <meta charset="UTF-8">
   <title>Today's Weather</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <h1>Today's Weather</h1>
@@ -158,6 +159,7 @@ def build_static_html_files(push_to_git=True):
 <head>
   <meta charset="UTF-8">
   <title>Weather History</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <h1>Lake Oswego Weather History</h1>

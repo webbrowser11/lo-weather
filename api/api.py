@@ -26,10 +26,10 @@ def get_last_updated():
 
 @app.route('/api/observations')
 def observations():
-    return jsonify({
-        "current": "79 degrees fahrenheit, Chance Showers And Thunderstorms then Partly Sunny",
+    return jsonify({{
+        "current": "{high}, {day_sky}",
         "last_updated": LAST_UPDATED
-    })
+    }})
 
 # IMPORTANT FOR VERCEL
 app = app
