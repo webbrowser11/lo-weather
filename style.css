@@ -3,10 +3,15 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: linear-gradient(to bottom, #dff3ff, #f7fbff);
-    color: #234;
     margin: 35px;
     line-height: 1.7;
+    color: #234;
+
+    /* Make the gradient cover the whole page */
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #dff3ff 0%, #f7fbff 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 /* Big title */
@@ -14,6 +19,7 @@ h1 {
     font-size: 3.2rem;
     font-weight: 800;
     background: linear-gradient(90deg, #0077ff, #00bfff, #00cc88);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 8px;
