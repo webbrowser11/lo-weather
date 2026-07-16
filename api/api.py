@@ -45,7 +45,7 @@ def observations():
     return jsonify({
         "current": "79 degrees fahrenheit, Chance Showers And Thunderstorms then Partly Sunny",
         "last_updated": LAST_UPDATED
-    }})
+    })
 
 
 # IMPORTANT FOR VERCEL

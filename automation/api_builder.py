@@ -78,11 +78,10 @@ def forecast():
     }})
 
 
-# Current observations are handled separately
 @app.route('/api/observations')
 def observations():
     return jsonify({{
-        "message": "Current observations are on the observations page.",
+        "current": "{high}, {day_sky}",
         "last_updated": LAST_UPDATED
     }})
 
