@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-LAST_UPDATED = "November 06, 2026 at 08:30 AM PT"
+LAST_UPDATED = "November 06, 2026 at 08:45 AM PT"
 
 
 @app.route('/api/temperature')
@@ -17,7 +17,7 @@ def temperature():
 @app.route('/api/skies')
 def skies():
     return jsonify({
-        "skies": "Chance Light Rain"
+        "skies": "Mostly Cloudy then Chance Light Rain"
     })
 
 
@@ -34,7 +34,7 @@ def forecast():
     return jsonify({
         "high": "62 degrees fahrenheit",
         "low": "49 degrees fahrenheit",
-        "skies": "Chance Light Rain",
+        "skies": "Mostly Cloudy then Chance Light Rain",
         "last_updated": LAST_UPDATED
     })
 
@@ -42,7 +42,7 @@ def forecast():
 @app.route('/api/observations')
 def observations():
     return jsonify({
-        "current": "62 degrees fahrenheit, Chance Light Rain",
+        "current": "62 degrees fahrenheit, Mostly Cloudy then Chance Light Rain",
         "last_updated": LAST_UPDATED
     })
 
